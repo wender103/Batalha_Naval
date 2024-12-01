@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Assets/Styles/Home/Home.css">
 </head>
 <body>
-    <button id="Btn_Voltar" onclick="Voltar_Pagina()">
+    <button id="Btn_Voltar">
         <img src="Assets/Imgs/Icons/Voltar.svg" alt="Voltar">
     </button>
 
@@ -15,13 +15,13 @@
         <div class="Container_Home">
             <h1>Bataia Dos Naviuzin</h1>
             <div class="Container_Botoes">
-                <button id="Botao_Criar_Sala" class="Botoes" onclick="Abrir_Paginas('Pag_Criar_Sala')">
+                <button id="Botao_Criar_Sala" class="Botoes">
                     Criar Sala
                 </button>
-                <button id="Botao_Entrar_Em_Uma_Sala" onclick="Abrir_Paginas('Pag_Entrar_Em_Sala')">
+                <button id="Botao_Entrar_Em_Uma_Sala">
                     Entrar Em Uma Sala
                 </button>
-                <button id="Botao_Jogar_Contra_Bot" onclick="Abrir_Paginas('Pag_Jogo')">
+                <button id="Botao_Jogar_Contra_Bot">
                     Jogar Contra Bot
                 </button>
             </div>
@@ -36,7 +36,7 @@
             <label for="Checkbox_Sala_Publica">Sala Pública</label>
         </div>
 
-        <button id="Btn_Criar_Sala" onclick="Criar_Sala()">Criar Sala</button>
+        <button id="Btn_Criar_Sala">Criar Sala</button>
     </div>
 
     <div id="Pag_Entrar_Em_Sala" class="Paginas">
@@ -72,7 +72,7 @@
                 <p id="P_Jogar_Novamente">Esperando O Adm Iniciar</p>
                 <div>
                     <button id="Btn_Jogar_Novamente">Jogar Novamente</button>
-                    <button id="Btn_Sair_Da_Sala" style="color: red;" onclick="Voltar_Pagina()">Sair Da Sala</button>
+                    <button id="Btn_Sair_Da_Sala" style="color: red;">Sair Da Sala</button>
                 </div>
             </div>
         </div>
@@ -86,12 +86,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
-    <script src="Assets/Js/Firebase.js"></script>
+    <!-- <script src="Assets/Js/Firebase.js"></script> -->
 
     <!--? My Scripts -->
-    <script src="Assets/Js/Main.js"></script>
+    <!-- <script src="Assets/Js/Main.js"></script>
     <script src="Assets/Js/Jogo.js"></script>
     <script src="Assets/Js/Efeitos_Sonoros.js"></script>
-    <script src="Assets/Js/Utils.js"></script>
+    <script src="Assets/Js/Utils.js"></script> -->
+
+
+    <!--? Codigo_Todo -->
+    <script src="Assets/Js/Codigo_Inteiro.js"></script>
 </body>
 </html>
