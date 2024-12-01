@@ -6,6 +6,7 @@ const Barcos = [
 ]
 
 let Sala_Atual = undefined
+let Pode_Jogar = false
 
 function GerarMatriz() {
     const TamanhoGrade = 10
@@ -116,8 +117,6 @@ function Iniciar_Jogo(matrizRecebida = null, Jogador=null) {
             if (Quadrado.id == "Quadrado_Inimigo") {
                 //* Atacando --------------------------------------------
                 Quadradinho.addEventListener('click', () => {
-                    let Pode_Jogar = true
-
                     if(Sala_Atual) {
                         Pode_Jogar = Sala_Atual.Jogadas.Vez_De == Usuario.email
                     }
@@ -138,6 +137,14 @@ function Iniciar_Jogo(matrizRecebida = null, Jogador=null) {
                                 Salvar_Jogada(resultado.x, resultado.y, false)
                             }
 
+                            Pode_Jogar = true
+
+                            if(!Sala_Atual) {
+                                if(!Sala_Atual) {
+                                    P_Sua_Vez_Aviso.innerText = 'Sua Vez'
+                                }
+                            }
+
                         } else {
                             Quadradinho.classList.add('Missed')
                             if(!Sala_Atual) {
@@ -146,6 +153,14 @@ function Iniciar_Jogo(matrizRecebida = null, Jogador=null) {
                                 }, 1000)
                             } else {
                                 Salvar_Jogada(resultado.x, resultado.y)     
+                            }
+
+                            Pode_Jogar = false
+
+                            if(!Sala_Atual) {
+                                if(!Sala_Atual) {
+                                    P_Sua_Vez_Aviso.innerText = 'Vez Do Oponente'
+                                }
                             }
                         }
                         
@@ -314,6 +329,11 @@ function Bot_Jogar(_Cordenada_X, _Cordenada_Y, Buscar_Barco=true, Jogador =false
         } else {
             Tocar_Tiro_Na_Agua()
             Matriz_Bot[X][Y] = 'O'
+            Pode_Jogar = true
+            
+            if(!Sala_Atual) {
+                P_Sua_Vez_Aviso.innerText = 'Sua Vez'
+            }
         }
 
         Informar_Resultado()
@@ -402,6 +422,12 @@ function Checar_Local_Ja_Atacado(x, y) {
 
 const Botao_Jogar_Contra_Bot = document.getElementById("Botao_Jogar_Contra_Bot")
 Botao_Jogar_Contra_Bot.addEventListener('click', () => {
+    Pode_Jogar = true
+
+    if(!Sala_Atual) {
+        P_Sua_Vez_Aviso.innerText = 'Sua Vez'
+    }
+
     Iniciar_Jogo(null)
     Iniciar_Jogo(GerarMatriz())
     ContarBarcos()
@@ -771,9 +797,13 @@ function Listner_Sala(_Email_Sala) {
                 P_Sua_Vez_Aviso.innerText = 'Vez Do Oponente'
             }
         } else {
-            if(Sala_Atual.Criador != Usuario.email) {
-                Abrir_Paginas('Pag_Entrar_Em_Sala')
-                Carregar_Salas_Criadas()
+            if(Sala_Atual) {
+                if(Sala_Atual.Criador != Usuario.email) {
+                    Abrir_Paginas('Pag_Entrar_Em_Sala')
+                    Carregar_Salas_Criadas()
+                }
+            } else {
+                Abrir_Paginas('Pag_Home')
             }
         }
     })
