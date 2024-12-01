@@ -10,7 +10,6 @@ function Codigo_Completo() {
     })
 
     const Botao_Jogar_Contra_Bot = document.getElementById('Botao_Jogar_Contra_Bot')
-    console.log('aa')
     
     Botao_Jogar_Contra_Bot.addEventListener('click', () => {
         Abrir_Paginas('Pag_Jogo')
