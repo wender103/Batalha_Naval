@@ -261,7 +261,7 @@ function Codigo_Completo() {
                                 if(!Sala_Atual) {
                                     setTimeout(() => {
                                         Bot_Jogar()
-                                    }, 1000)
+                                    }, 700)
                                 } else {
                                     Salvar_Jogada(resultado.x, resultado.y)     
                                 }
@@ -430,7 +430,7 @@ function Codigo_Completo() {
                     } else {
                         setTimeout(() => {
                             Bot_Jogar()
-                        }, 1000)
+                        }, 700)
                     }
                 }
 
@@ -509,16 +509,19 @@ function Codigo_Completo() {
             for (let c = 0; c < resultado.length; c++) {
                 setTimeout(() => {
                     Bot_Jogar(resultado[c].x, resultado[c].y, false)
-                }, c * 1000)
+
+                    if(c == resultado.length - 1) {
+                        setTimeout(() => {
+                            Bot_Jogar()
+                        }, 700)
+                    }
+                }, c * 700)
             }
 
-            setTimeout(() => {
-                Bot_Jogar()
-            }, 1600)
         } else {
             setTimeout(() => {
                 Bot_Jogar()
-            }, 1000)
+            }, 700)
         }
     }
 

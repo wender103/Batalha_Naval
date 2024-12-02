@@ -420,7 +420,6 @@ function Checar_Local_Ja_Atacado(x, y) {
     }
 }
 
-const Botao_Jogar_Contra_Bot = document.getElementById("Botao_Jogar_Contra_Bot")
 Botao_Jogar_Contra_Bot.addEventListener('click', () => {
     Pode_Jogar = true
 
